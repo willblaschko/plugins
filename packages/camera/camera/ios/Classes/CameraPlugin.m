@@ -1068,7 +1068,7 @@ NSString *const errorMethod = @"error";
     result(getFlutterError(error));
     return;
   }
-  [_captureDevice rampToVideoZoomFactor:zoom withRate:1];
+  [_captureDevice rampToVideoZoomFactor:zoom withRate:100];
   [_captureDevice unlockForConfiguration];
 
   result(nil);

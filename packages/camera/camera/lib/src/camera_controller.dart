@@ -304,6 +304,50 @@ class CameraController extends ValueNotifier<CameraValue> {
     _initCalled = true;
   }
 
+
+  Future<List<double>> getCameraSettings() async {
+    if (!value.isInitialized || _isDisposed) {
+      throw CameraException(
+        'Uninitialized CameraController.',
+        'takePicture was called on uninitialized CameraController',
+      );
+    }
+    try {
+      String result = await _channel.invokeMethod<String>(
+          'getCameraSettings'
+      );
+      List<String> split = result.split("/");
+      List<double> values = [
+        double.parse(split[0]),
+        double.parse(split[1]),
+        double.parse(split[2])
+      ];
+      return values;
+    } on PlatformException catch (e) {
+      throw CameraException(e.code, e.message);
+    }
+  }
+
+
+  Future<double> getCameraTemperature() async {
+    if (!value.isInitialized || _isDisposed) {
+      throw CameraException(
+        'Uninitialized CameraController.',
+        'takePicture was called on uninitialized CameraController',
+      );
+    }
+    try {
+      double result = await _channel.invokeMethod<double>(
+          'getCameraWhiteBalance'
+      );
+
+      return result;
+    } on PlatformException catch (e) {
+      throw CameraException(e.code, e.message);
+    }
+  }
+
+
   /// Prepare the capture session for video recording.
   ///
   /// Use of this method is optional, but it may be called for performance

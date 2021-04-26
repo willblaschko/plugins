@@ -9,13 +9,13 @@ dependencies:
   flutter:
     sdk: flutter
 
-  camera_platform_interface: ^2.0.0
+  camera_platform_interface: ^2.0.1
 
-  pedantic: ^1.10.0
-  quiver: ^3.0.0
+  pedantic: ^1.11.0
+  quiver: ^3.0.1
 
 dev_dependencies:
-  video_player: ^2.0.0
+  video_player: ^2.1.1
   flutter_test:
     sdk: flutter
   flutter_driver:

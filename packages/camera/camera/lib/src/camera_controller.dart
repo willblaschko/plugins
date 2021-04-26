@@ -319,9 +319,9 @@ class CameraController extends ValueNotifier<CameraValue> {
       );
     }
     try {
-      String result = await _channel.invokeMethod<String>(
+      String result = (await _channel.invokeMethod<String>(
           'getCameraSettings'
-      );
+      ))!;
       List<String> split = result.split("/");
       List<double> values = [
         double.parse(split[0]),
@@ -343,9 +343,9 @@ class CameraController extends ValueNotifier<CameraValue> {
       );
     }
     try {
-      double result = await _channel.invokeMethod<double>(
+      double result = (await _channel.invokeMethod<double>(
           'getCameraWhiteBalance'
-      );
+      ))!;
 
       return result;
     } on PlatformException catch (e) {

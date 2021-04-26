@@ -17,7 +17,7 @@ A Flutter plugin to use the camera from your Flutter app.
   s.public_header_files = 'Classes/**/*.h'
   s.dependency 'Flutter'
 
-  s.platform = :ios, '8.0'
+  s.platform = :ios, '12.1'
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64' }
 
   s.test_spec 'Tests' do |test_spec|
